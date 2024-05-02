@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/myicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myicon.png">
+  <link rel="mask-icon" href="/images/myicon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="[object Object]">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"1nv1s1b1e.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Qt重要控件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="其他重要控件">
+<meta property="og:url" content="https://1nv1s1b1e.github.io/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/index.html">
+<meta property="og:site_name" content="Ymy_official">
+<meta property="og:description" content="Qt重要控件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://1nv1s1b1e.github.io/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240227222607712.png">
+<meta property="og:image" content="https://1nv1s1b1e.github.io/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229194643742.png">
+<meta property="og:image" content="https://1nv1s1b1e.github.io/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229195350333.png">
+<meta property="og:image" content="https://1nv1s1b1e.github.io/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229201941571.png">
+<meta property="og:image" content="https://1nv1s1b1e.github.io/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229202849973.png">
+<meta property="article:published_time" content="2024-05-02T01:49:08.000Z">
+<meta property="article:modified_time" content="2024-05-02T01:58:30.107Z">
+<meta property="article:author" content="Ymy">
+<meta property="article:tag" content="Qt控件">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1nv1s1b1e.github.io/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240227222607712.png">
+
+<link rel="canonical" href="https://1nv1s1b1e.github.io/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>其他重要控件 | Ymy_official</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ymy_official</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://1nv1s1b1e.github.io/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myicon.png">
+      <meta itemprop="name" content="Ymy">
+      <meta itemprop="description" content="Live a life you will remember">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ymy_official">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          其他重要控件
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-02 09:49:08 / 修改时间：09:58:30" itemprop="dateCreated datePublished" datetime="2024-05-02T09:49:08+08:00">2024-05-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Qt%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">Qt学习</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">Qt重要控件</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <center style="font-size:24px">
+Qt其他重要控件
+</center>
+<p><img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240227222607712.png" alt="image-20240227222607712" style="zoom:80%;"></p>
+<h2 id="qwidget是其他组件的容器也即父类">QWidget是其他组件的容器，也即父类</h2>
+<h2 id="qcheckbox-复选框">QCheckBox-复选框</h2>
+<ol type="1">
+<li><p>QCheckbox("text")定义一个复选框</p></li>
+<li><p>可以通过setChecked(True/False)和setChecked(Qt.Checked...)来设置复选框的选中状态</p></li>
+<li><p>stateChanged信号可以connect函数，状态发生变化触发函数</p></li>
+<li><p>checkbox.setTristate(True/False)可以定义是否含有半复选状态</p></li>
+</ol>
+<h2 id="qradiobutton-单选">QRadioButton-单选</h2>
+<ol type="1">
+<li>QRadioButton("text")</li>
+<li>A radio button emits the toggled() signal when it is switched on or
+off. toggled()信号在该单选选项状态变化时触发</li>
+<li>相同父类的单选属于同一组,同一组中只会有一个被选中</li>
+<li>isChecked()检测按钮的开关</li>
+</ol>
+<h2 id="qcombobox-下拉列表">QComboBox-下拉列表</h2>
+<ol type="1">
+<li>QComboBox(self/parent)</li>
+<li>在列表中添加item，addItem(相当于append)和InsertItem(index,item)</li>
+<li>取当前选中的Item的currentData(),currentIndex(),currentText()</li>
+<li>选项改变时产生QcomboBox.activated信号</li>
+</ol>
+<h2 id="qspinbox-计数器">QSpinBox-计数器</h2>
+<p>属性：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229194643742.png" alt="image-20240229194643742"></p>
+<ol type="1">
+<li>QspinBox("参数可以设置属性如minimum=1")</li>
+<li>spinbox中的数值发生变化后会释放valueChanged信号,该信号连接的函数会接受到一个返回值，为当前spinbox中的数字，还有textChanged信号，返回Qstring</li>
+</ol>
+<h2 id="qdatetimeeditqdateeditqtimeedit">QDateTimeEdit/QDateEdit/QTimeEdit</h2>
+<p>属性：</p>
+<figure>
+<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229195350333.png" alt="image-20240229195350333">
+<figcaption aria-hidden="true">image-20240229195350333</figcaption>
+</figure>
+<ol type="1">
+<li>QDateTimeEdit(self,calendarPopup=True/False)
+,后面的参数若为true则展示日历</li>
+<li>时间编辑完成时释放editingFinished信号，值变化释放dateTimeChanged信号</li>
+<li>QdateTime格式转日期格式value.toString("yyyy-MM-dd HH:mm")</li>
+<li>dateTime ()方法取得当前的组件中的value</li>
+</ol>
+<p><strong>其他两种类似</strong>QDateTime</p>
+<p>转格式不同：date为str(value.toPyDate())，取为date ()</p>
+<p>time 为str(value.toPyTime())，取为time()</p>
+<h2 id="qslider-滑动条">QSlider-滑动条</h2>
+<p>A slider translates the position of the handle into an integer within
+a valid range.</p>
+<ol type="1">
+<li>QSlider(Qt.Orientation.Vertical/Horizontal, self)
+前面的参数表示滑动条的方向</li>
+<li>设置属性如下：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229201941571.png" alt="image-20240229201941571"></li>
+<li>取slider的value，value ()</li>
+<li>数值变化释放valueChanged信号，会返回当前value给函数</li>
+</ol>
+<h2 id="qtabwidget-选项卡">QTabWidget-选项卡</h2>
+<ol type="1">
+<li>tab=QTabWidget()</li>
+<li>创建页面使用QWidget(self)例：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229202849973.png" alt="image-20240229202849973"></li>
+<li>然后再向每一个Qwidget中加入组件</li>
+<li>每个页面加入QtabWidget，tab.addTab(Qwidget变量名,"页面名")</li>
+<li>可以设置让每个tab可以动，tab =
+QTabWidget(self,movable=True)或tab.setMovable(True)，设置显示关闭按钮tab
+= QTabWidget(self,tabsClosable=True)或tab.setTabsClosable(True)</li>
+<li>还可以改变tab的位置东南西北和shape</li>
+</ol>
+<h2 id="qtextedit-多行文本框">QTextEdit-多行文本框</h2>
+<ol type="1">
+<li>QTextEdit(self)</li>
+</ol>
+<h2 id="qprogressbar-进度条">QProgressBar-进度条</h2>
+<ol type="1">
+<li>QProgressBar()</li>
+<li>计算当前进度(current_value - minimum ) / (maximum - minimum)</li>
+<li>setValue/reset</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Ymy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://1nv1s1b1e.github.io/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/" title="其他重要控件">https://1nv1s1b1e.github.io/2024/05/02/其他重要控件/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Qt%E6%8E%A7%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> Qt控件</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/05/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="prev" title="多线程">
+      <i class="fa fa-chevron-left"></i> 多线程
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#qwidget%E6%98%AF%E5%85%B6%E4%BB%96%E7%BB%84%E4%BB%B6%E7%9A%84%E5%AE%B9%E5%99%A8%E4%B9%9F%E5%8D%B3%E7%88%B6%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">QWidget是其他组件的容器，也即父类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qcheckbox-%E5%A4%8D%E9%80%89%E6%A1%86"><span class="nav-number">2.</span> <span class="nav-text">QCheckBox-复选框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qradiobutton-%E5%8D%95%E9%80%89"><span class="nav-number">3.</span> <span class="nav-text">QRadioButton-单选</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qcombobox-%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">QComboBox-下拉列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qspinbox-%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">QSpinBox-计数器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qdatetimeeditqdateeditqtimeedit"><span class="nav-number">6.</span> <span class="nav-text">QDateTimeEdit&#x2F;QDateEdit&#x2F;QTimeEdit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qslider-%E6%BB%91%E5%8A%A8%E6%9D%A1"><span class="nav-number">7.</span> <span class="nav-text">QSlider-滑动条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qtabwidget-%E9%80%89%E9%A1%B9%E5%8D%A1"><span class="nav-number">8.</span> <span class="nav-text">QTabWidget-选项卡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qtextedit-%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E6%A1%86"><span class="nav-number">9.</span> <span class="nav-text">QTextEdit-多行文本框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qprogressbar-%E8%BF%9B%E5%BA%A6%E6%9D%A1"><span class="nav-number">10.</span> <span class="nav-text">QProgressBar-进度条</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ymy"
+      src="/images/myicon.png">
+  <p class="site-author-name" itemprop="name">Ymy</p>
+  <div class="site-description" itemprop="description">Live a life you will remember</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ymy</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: false,
+  label: '🌓',
+  autoMatchOsTheme: false
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+if (window.darkmode && !window.darkmode.isActivated()) {
+  window.darkmode.toggle();
+  var toggleButtons = document.getElementsByClassName("darkmode-toggle");
+  if (toggleButtons && toggleButtons.length > 0) {
+    for (i = 0; i < toggleButtons.length; i++) {
+      toggleButtons[i].classList.add("darkmode-toggle--white");
+    }
+  }
+}
+</script>
+
+    </div>
+   
+<script>
+  var OriginTitile = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "๐·°(৹˃̵﹏˂̵৹)°·๐不要走     " + OriginTitile;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "(*´∇｀*)你好啊       " + OriginTitile;
+      titleTime = setTimeout(function() {
+        document.title = OriginTitile;
+      }, 2000);
+    }
+  });
+</script>
+
+
+</body>
+</html>
