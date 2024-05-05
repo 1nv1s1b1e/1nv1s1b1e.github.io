@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://1nv1s1b1e.github.io/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229201941571.png">
 <meta property="og:image" content="https://1nv1s1b1e.github.io/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229202849973.png">
 <meta property="article:published_time" content="2024-05-02T01:49:08.000Z">
-<meta property="article:modified_time" content="2024-05-02T01:58:30.107Z">
+<meta property="article:modified_time" content="2024-05-02T02:25:49.255Z">
 <meta property="article:author" content="Ymy">
 <meta property="article:tag" content="Qt控件">
 <meta name="twitter:card" content="summary">
@@ -318,7 +318,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-05-02 09:49:08 / 修改时间：09:58:30" itemprop="dateCreated datePublished" datetime="2024-05-02T09:49:08+08:00">2024-05-02</time>
+              <time title="创建时间：2024-05-02 09:49:08 / 修改时间：10:25:49" itemprop="dateCreated datePublished" datetime="2024-05-02T09:49:08+08:00">2024-05-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -377,17 +377,14 @@ off. toggled()信号在该单选选项状态变化时触发</li>
 <li>选项改变时产生QcomboBox.activated信号</li>
 </ol>
 <h2 id="qspinbox-计数器">QSpinBox-计数器</h2>
-<p>属性：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229194643742.png" alt="image-20240229194643742"></p>
+<p>属性：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229194643742.png"></p>
 <ol type="1">
 <li>QspinBox("参数可以设置属性如minimum=1")</li>
 <li>spinbox中的数值发生变化后会释放valueChanged信号,该信号连接的函数会接受到一个返回值，为当前spinbox中的数字，还有textChanged信号，返回Qstring</li>
 </ol>
 <h2 id="qdatetimeeditqdateeditqtimeedit">QDateTimeEdit/QDateEdit/QTimeEdit</h2>
 <p>属性：</p>
-<figure>
-<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229195350333.png" alt="image-20240229195350333">
-<figcaption aria-hidden="true">image-20240229195350333</figcaption>
-</figure>
+<p><img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229195350333.png"></p>
 <ol type="1">
 <li>QDateTimeEdit(self,calendarPopup=True/False)
 ,后面的参数若为true则展示日历</li>
@@ -404,14 +401,14 @@ a valid range.</p>
 <ol type="1">
 <li>QSlider(Qt.Orientation.Vertical/Horizontal, self)
 前面的参数表示滑动条的方向</li>
-<li>设置属性如下：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229201941571.png" alt="image-20240229201941571"></li>
+<li>设置属性如下：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229201941571.png"></li>
 <li>取slider的value，value ()</li>
 <li>数值变化释放valueChanged信号，会返回当前value给函数</li>
 </ol>
 <h2 id="qtabwidget-选项卡">QTabWidget-选项卡</h2>
 <ol type="1">
 <li>tab=QTabWidget()</li>
-<li>创建页面使用QWidget(self)例：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229202849973.png" alt="image-20240229202849973"></li>
+<li>创建页面使用QWidget(self)例：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229202849973.png"></li>
 <li>然后再向每一个Qwidget中加入组件</li>
 <li>每个页面加入QtabWidget，tab.addTab(Qwidget变量名,"页面名")</li>
 <li>可以设置让每个tab可以动，tab =
@@ -468,7 +465,10 @@ QTabWidget(self,movable=True)或tab.setMovable(True)，设置显示关闭按钮t
     <a href="/2024/05/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="prev" title="多线程">
       <i class="fa fa-chevron-left"></i> 多线程
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/05/05/%E9%9A%8F%E7%AC%94/" rel="next" title="随笔">
+      随笔 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -543,20 +543,20 @@ QTabWidget(self,movable=True)或tab.setMovable(True)，设置显示关闭按钮t
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
