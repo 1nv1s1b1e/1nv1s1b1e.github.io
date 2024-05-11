@@ -323,6 +323,8 @@ mjx-container[display="true"] + br {
             </span>
 
           
+  
+  
 
         </div>
       </header>
@@ -398,6 +400,8 @@ mjx-container[display="true"] + br {
             </span>
 
           
+  
+  
 
         </div>
       </header>
@@ -473,6 +477,8 @@ mjx-container[display="true"] + br {
             </span>
 
           
+  
+  
 
         </div>
       </header>
@@ -548,6 +554,8 @@ mjx-container[display="true"] + br {
             </span>
 
           
+  
+  
 
         </div>
       </header>
@@ -623,6 +631,8 @@ mjx-container[display="true"] + br {
             </span>
 
           
+  
+  
 
         </div>
       </header>
@@ -698,6 +708,8 @@ mjx-container[display="true"] + br {
             </span>
 
           
+  
+  
 
         </div>
       </header>
@@ -773,6 +785,8 @@ mjx-container[display="true"] + br {
             </span>
 
           
+  
+  
 
         </div>
       </header>
@@ -854,6 +868,8 @@ mjx-container[display="true"] + br {
             </span>
 
           
+  
+  
 
         </div>
       </header>
@@ -935,6 +951,8 @@ mjx-container[display="true"] + br {
             </span>
 
           
+  
+  
 
         </div>
       </header>
@@ -1016,6 +1034,8 @@ mjx-container[display="true"] + br {
             </span>
 
           
+  
+  
 
         </div>
       </header>
@@ -1389,6 +1409,35 @@ if (window.darkmode && !window.darkmode.isActivated()) {
     }
   }
 }
+</script>
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'GqUb84iz9utndNseXKCixgVC-gzGzoHsz',
+      appKey     : 'Tm4lvwvf9hfJQ27nAlTkRbj5',
+      placeholder: "注意你的言辞",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
 </script>
 
     </div>
