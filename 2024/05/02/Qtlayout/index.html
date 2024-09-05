@@ -361,30 +361,29 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <center style="font-size:24px">
-QtLayOut与Qt样式表
-</center>
-<div style="font-size:18px">
-<p>（不借助QtDesigner引入布局的方式）</p>
-<ol type="1">
-<li><p>首先创建一个layout对象, 如水平布局则可写为layout =
-QHBoxLayout()</p></li>
-<li><p>然后再使用self.setLayout()实现布局，然后在layout中定义组件,layout.addWidget("组件的name")</p></li>
-<li><p>如果想实现左右空出部分,则使用spacer，若想在左边留空，则Layout对象使用addStretch()函数，若在右边则在将组件放入layout对象之后再调用该函数</p></li>
+        <center style="font-size:24px">QtLayOut与Qt样式表</center>
+
+<p><div style="font-size:18px">（不借助QtDesigner引入布局的方式）</div></p>
+<ol>
+<li><p>首先创建一个layout对象,  如水平布局则可写为layout = QHBoxLayout()</p>
+</li>
+<li><p>然后再使用self.setLayout()实现布局，然后在layout中定义组件,layout.addWidget(“组件的name”)</p>
+</li>
+<li><p>如果想实现左右空出部分,则使用spacer，若想在左边留空，则Layout对象使用addStretch()函数，若在右边则在将组件放入layout对象之后再调用该函数</p>
+</li>
 <li><p>若想实现几个组件的一定比例，则使用setStretch(widget,factor)函数，两个参数前面是组件后面是比例</p>
-<p><img src="/2024/05/02/Qtlayout/image-20240226194400050.png"></p></li>
-<li><p>实现组件之间留空或者实现组件更精细的调节，setSpacing()中间参数是数字，(间隔多少px),setContentMargins()设置四周，<strong><em>setContentsMargins(self,
-left: int, top: int, right: int, bottom: int) -&gt;
-None</em></strong></p>
-<p><img src="/2024/05/02/Qtlayout/image-20240226195258597.png"></p></li>
+<p><img src="/2024/05/02/Qtlayout/image-20240226194400050.png" alt></p>
+</li>
+<li><p>实现组件之间留空或者实现组件更精细的调节，setSpacing()中间参数是数字，(间隔多少px),setContentMargins()设置四周，<strong><em>setContentsMargins(self, left: int, top: int, right: int, bottom: int) -&gt; None</em></strong></p>
+<p><img src="/2024/05/02/Qtlayout/image-20240226195258597.png" alt></p>
+</li>
 </ol>
 <p><strong>布局略微带过，个人大多使用QtDesigner</strong></p>
-<h2 id="qt-style-sheet">Qt Style Sheet</h2>
-<ol type="1">
+<h2 id="Qt-Style-Sheet"><a href="#Qt-Style-Sheet" class="headerlink" title="Qt Style Sheet"></a>Qt Style Sheet</h2><ol>
 <li>语法与css基本相同，可参照css</li>
-<li>例：<img src="/2024/05/02/Qtlayout/image-20240302094328665.png"></li>
+<li>例：<img src="/2024/05/02/Qtlayout/image-20240302094328665.png" alt></li>
 </ol>
-</div>
+
     </div>
 
     
@@ -486,7 +485,7 @@ None</em></strong></p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#qt-style-sheet"><span class="nav-number">1.</span> <span class="nav-text">Qt Style Sheet</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Qt-Style-Sheet"><span class="nav-number">1.</span> <span class="nav-text">Qt Style Sheet</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -502,7 +501,7 @@ None</em></strong></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -515,7 +514,7 @@ None</em></strong></p>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -366,21 +366,20 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <center style="font-size:24px">
-图论
-</center>
-<h2 id="最短路">1.最短路</h2>
-<p><img src="/2024/04/19/%E5%9B%BE%E8%AE%BA1/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dteTAyMTdf,size_16,color_FFFFFF,t_70.jpeg"></p>
+         <center style="font-size:24px"> 图论
+ </center>
+
+
+<h2 id="1-最短路"><a href="#1-最短路" class="headerlink" title="1.最短路"></a>1.最短路</h2><p><img src="/2024/04/19/%E5%9B%BE%E8%AE%BA1/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dteTAyMTdf,size_16,color_FFFFFF,t_70.jpeg" alt></p>
 <p>朴素dij:</p>
-<h2 id="每一轮确定一个为最短路的点因此共n-1轮">每一轮确定一个为最短路的点，因此共n-1轮</h2>
-<ol type="1">
+<h2 id="每一轮确定一个为最短路的点，因此共n-1轮"><a href="#每一轮确定一个为最短路的点，因此共n-1轮" class="headerlink" title="每一轮确定一个为最短路的点，因此共n-1轮"></a>每一轮确定一个为最短路的点，因此共n-1轮</h2><ol>
 <li>初始起点dis[0]=0,其余所有点设置为无穷大.</li>
 <li>选定当前集合没有确定最短路的点中距离最短的点，标记为true.(该点已经确定为最短)</li>
 <li>用该点来更新其他的点。</li>
 <li>n-1轮后，如果dist[n]仍为无穷大，则不存在最短路。</li>
 </ol>
 <p>显然如果有负权边显然不能达到，因为我们之前保证每一轮得到的点可以确定为最短路，若存在负权边，则破坏了这种效果。</p>
-<p><img src="/2024/04/19/%E5%9B%BE%E8%AE%BA1/image-20240403172613592.png"></p>
+<p><img src="/2024/04/19/%E5%9B%BE%E8%AE%BA1/image-20240403172613592.png" alt></p>
 <p>但是除非负权边与起点直接相连(我个人考虑是可以的)</p>
 <p>技巧：</p>
 <p>1.任意源点到单一汇点的最短路 ：建反图</p>
@@ -390,8 +389,7 @@ mjx-container[display="true"] + br {
 <p>无向图：从x点跑一遍单源最短即可，dist(z,x)+dist(z,y)</p>
 <p>3.求x到y强制经过某条边的最短路(即经过两个点) 与上相同</p>
 <p>4.求节点集合s到节点集合t所有路径距离的最小值</p>
-<p>技巧：
-虚拟源点s，汇点t,s向所有源点连边，t向所有汇点连边，dist(s,t)即为ans</p>
+<p>技巧： 虚拟源点s，汇点t,s向所有源点连边，t向所有汇点连边，dist(s,t)即为ans</p>
 <p>5.从s到t的最短路，可以选择其中最多k条边使得费用为0</p>
 <p>技巧：分层图+拆点，建立k+1层，每一层点的含义为经过k条边使得费用为0</p>
 <p>每层图内正常连边，图之间0费用连边，0层图源点作为源点，每层的汇点作为汇</p>
@@ -399,10 +397,8 @@ mjx-container[display="true"] + br {
 <p>//分层图 +差分约束</p>
 <p>6.最短路计数，对于每个汇点的单源最短路条数(边权为正)</p>
 <p>技巧：dij维护dp</p>
-<p>网络流中也可应用</p>
-<h2 id="bellman-ford">Bellman-ford：</h2>
-<h2 id="每一轮对点进行松弛对于每一个点如果被松弛的话则必须要增加新的一条边来使得其被松弛相同边数对该点的松弛会在同一轮中被完成即bellman-ford每一轮遍历会得到从起点经过x条边到某点的最短路不存在负环的情况下对于每个点来说最多经过n-1边得到最短路n-1次松弛因此进行n-1轮">每一轮对点进行松弛。对于每一个点，如果被松弛的话，则必须要增加新的一条边来使得其被松弛，相同边数对该点的松弛会在同一轮中被完成。即bellman-ford每一轮遍历会得到从起点经过x条边到某点的最短路(不存在负环的情况下)。对于每个点来说最多经过n-1边得到最短路(n-1次松弛)，因此进行n-1轮。</h2>
-<p>获得经过x条边到达某点的最短路：上面得到经过k轮会得到长度为k的最短路，但是可能在前k-1轮就已经得到了，只是保证在第k轮必定得到，因此经过x条边需要一个备份数组。备份数组仅仅记录上一轮dist数组更新的结果。从而使得每一轮得到的结果是只经过k条边的结果。</p>
+<p>网络流中也可应用 </p>
+<h2 id="Bellman-ford："><a href="#Bellman-ford：" class="headerlink" title="Bellman-ford："></a>Bellman-ford：</h2><h2 id="每一轮对点进行松弛。对于每一个点，如果被松弛的话，则必须要增加新的一条边来使得其被松弛，相同边数对该点的松弛会在同一轮中被完成。即bellman-ford每一轮遍历会得到从起点经过x条边到某点的最短路-不存在负环的情况下-。对于每个点来说最多经过n-1边得到最短路-n-1次松弛-，因此进行n-1轮。"><a href="#每一轮对点进行松弛。对于每一个点，如果被松弛的话，则必须要增加新的一条边来使得其被松弛，相同边数对该点的松弛会在同一轮中被完成。即bellman-ford每一轮遍历会得到从起点经过x条边到某点的最短路-不存在负环的情况下-。对于每个点来说最多经过n-1边得到最短路-n-1次松弛-，因此进行n-1轮。" class="headerlink" title="每一轮对点进行松弛。对于每一个点，如果被松弛的话，则必须要增加新的一条边来使得其被松弛，相同边数对该点的松弛会在同一轮中被完成。即bellman-ford每一轮遍历会得到从起点经过x条边到某点的最短路(不存在负环的情况下)。对于每个点来说最多经过n-1边得到最短路(n-1次松弛)，因此进行n-1轮。"></a>每一轮对点进行松弛。对于每一个点，如果被松弛的话，则必须要增加新的一条边来使得其被松弛，相同边数对该点的松弛会在同一轮中被完成。即bellman-ford每一轮遍历会得到从起点经过x条边到某点的最短路(不存在负环的情况下)。对于每个点来说最多经过n-1边得到最短路(n-1次松弛)，因此进行n-1轮。</h2><p>获得经过x条边到达某点的最短路：上面得到经过k轮会得到长度为k的最短路，但是可能在前k-1轮就已经得到了，只是保证在第k轮必定得到，因此经过x条边需要一个备份数组。备份数组仅仅记录上一轮dist数组更新的结果。从而使得每一轮得到的结果是只经过k条边的结果。</p>
 <p>SPFA：队列优化的bellman-ford</p>
 <p>显然只有已经被松弛过的点才会去松弛其他的点因此可以利用其进行优化</p>
 <p>最小生成树：</p>
@@ -413,9 +409,7 @@ mjx-container[display="true"] + br {
 <p>2.对于不同的最小生成树，加入其中边权=x的所有边(原图基础上)连通性相同</p>
 <p>3.不同边权的选择是独立的，相同或大于其边权的边才会相互影响</p>
 <p>负环：bellman-ford/spfa</p>
-<p>由上述对spfa的介绍，显然一个点被更新了n次则说明加了n条边(
-起点到该点的最短路)则一定
-存在负环，同时若某点最短路边数大于等于n也说明有负环</p>
+<p>由上述对spfa的介绍，显然一个点被更新了n次则说明加了n条边( 起点到该点的最短路)则一定 存在负环，同时若某点最短路边数大于等于n也说明有负环</p>
 <p>虚拟源点，相当于所有点全部入队，dist初始化为0，然后正常做spfa，判断负环</p>
 <p>trick：对于可能超时的情况，当所有点的入队次数大于2n或3n是即可判断有负环。把队列换成栈可以绝对正确但不太稳定.</p>
 
@@ -520,7 +514,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">1.最短路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%8F%E4%B8%80%E8%BD%AE%E7%A1%AE%E5%AE%9A%E4%B8%80%E4%B8%AA%E4%B8%BA%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E7%82%B9%E5%9B%A0%E6%AD%A4%E5%85%B1n-1%E8%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">每一轮确定一个为最短路的点，因此共n-1轮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bellman-ford"><span class="nav-number">3.</span> <span class="nav-text">Bellman-ford：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%8F%E4%B8%80%E8%BD%AE%E5%AF%B9%E7%82%B9%E8%BF%9B%E8%A1%8C%E6%9D%BE%E5%BC%9B%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%80%E4%B8%AA%E7%82%B9%E5%A6%82%E6%9E%9C%E8%A2%AB%E6%9D%BE%E5%BC%9B%E7%9A%84%E8%AF%9D%E5%88%99%E5%BF%85%E9%A1%BB%E8%A6%81%E5%A2%9E%E5%8A%A0%E6%96%B0%E7%9A%84%E4%B8%80%E6%9D%A1%E8%BE%B9%E6%9D%A5%E4%BD%BF%E5%BE%97%E5%85%B6%E8%A2%AB%E6%9D%BE%E5%BC%9B%E7%9B%B8%E5%90%8C%E8%BE%B9%E6%95%B0%E5%AF%B9%E8%AF%A5%E7%82%B9%E7%9A%84%E6%9D%BE%E5%BC%9B%E4%BC%9A%E5%9C%A8%E5%90%8C%E4%B8%80%E8%BD%AE%E4%B8%AD%E8%A2%AB%E5%AE%8C%E6%88%90%E5%8D%B3bellman-ford%E6%AF%8F%E4%B8%80%E8%BD%AE%E9%81%8D%E5%8E%86%E4%BC%9A%E5%BE%97%E5%88%B0%E4%BB%8E%E8%B5%B7%E7%82%B9%E7%BB%8F%E8%BF%87x%E6%9D%A1%E8%BE%B9%E5%88%B0%E6%9F%90%E7%82%B9%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E4%B8%8D%E5%AD%98%E5%9C%A8%E8%B4%9F%E7%8E%AF%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%AA%E7%82%B9%E6%9D%A5%E8%AF%B4%E6%9C%80%E5%A4%9A%E7%BB%8F%E8%BF%87n-1%E8%BE%B9%E5%BE%97%E5%88%B0%E6%9C%80%E7%9F%AD%E8%B7%AFn-1%E6%AC%A1%E6%9D%BE%E5%BC%9B%E5%9B%A0%E6%AD%A4%E8%BF%9B%E8%A1%8Cn-1%E8%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">每一轮对点进行松弛。对于每一个点，如果被松弛的话，则必须要增加新的一条边来使得其被松弛，相同边数对该点的松弛会在同一轮中被完成。即bellman-ford每一轮遍历会得到从起点经过x条边到某点的最短路(不存在负环的情况下)。对于每个点来说最多经过n-1边得到最短路(n-1次松弛)，因此进行n-1轮。</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">1.最短路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%8F%E4%B8%80%E8%BD%AE%E7%A1%AE%E5%AE%9A%E4%B8%80%E4%B8%AA%E4%B8%BA%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%9A%84%E7%82%B9%EF%BC%8C%E5%9B%A0%E6%AD%A4%E5%85%B1n-1%E8%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">每一轮确定一个为最短路的点，因此共n-1轮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bellman-ford%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">Bellman-ford：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%8F%E4%B8%80%E8%BD%AE%E5%AF%B9%E7%82%B9%E8%BF%9B%E8%A1%8C%E6%9D%BE%E5%BC%9B%E3%80%82%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%80%E4%B8%AA%E7%82%B9%EF%BC%8C%E5%A6%82%E6%9E%9C%E8%A2%AB%E6%9D%BE%E5%BC%9B%E7%9A%84%E8%AF%9D%EF%BC%8C%E5%88%99%E5%BF%85%E9%A1%BB%E8%A6%81%E5%A2%9E%E5%8A%A0%E6%96%B0%E7%9A%84%E4%B8%80%E6%9D%A1%E8%BE%B9%E6%9D%A5%E4%BD%BF%E5%BE%97%E5%85%B6%E8%A2%AB%E6%9D%BE%E5%BC%9B%EF%BC%8C%E7%9B%B8%E5%90%8C%E8%BE%B9%E6%95%B0%E5%AF%B9%E8%AF%A5%E7%82%B9%E7%9A%84%E6%9D%BE%E5%BC%9B%E4%BC%9A%E5%9C%A8%E5%90%8C%E4%B8%80%E8%BD%AE%E4%B8%AD%E8%A2%AB%E5%AE%8C%E6%88%90%E3%80%82%E5%8D%B3bellman-ford%E6%AF%8F%E4%B8%80%E8%BD%AE%E9%81%8D%E5%8E%86%E4%BC%9A%E5%BE%97%E5%88%B0%E4%BB%8E%E8%B5%B7%E7%82%B9%E7%BB%8F%E8%BF%87x%E6%9D%A1%E8%BE%B9%E5%88%B0%E6%9F%90%E7%82%B9%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF-%E4%B8%8D%E5%AD%98%E5%9C%A8%E8%B4%9F%E7%8E%AF%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B-%E3%80%82%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%AA%E7%82%B9%E6%9D%A5%E8%AF%B4%E6%9C%80%E5%A4%9A%E7%BB%8F%E8%BF%87n-1%E8%BE%B9%E5%BE%97%E5%88%B0%E6%9C%80%E7%9F%AD%E8%B7%AF-n-1%E6%AC%A1%E6%9D%BE%E5%BC%9B-%EF%BC%8C%E5%9B%A0%E6%AD%A4%E8%BF%9B%E8%A1%8Cn-1%E8%BD%AE%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">每一轮对点进行松弛。对于每一个点，如果被松弛的话，则必须要增加新的一条边来使得其被松弛，相同边数对该点的松弛会在同一轮中被完成。即bellman-ford每一轮遍历会得到从起点经过x条边到某点的最短路(不存在负环的情况下)。对于每个点来说最多经过n-1边得到最短路(n-1次松弛)，因此进行n-1轮。</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -536,7 +530,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -549,7 +543,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

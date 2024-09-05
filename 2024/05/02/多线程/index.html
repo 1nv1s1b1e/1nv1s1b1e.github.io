@@ -28,7 +28,7 @@
 <meta property="og:description" content="简要介绍qt多线程的引入">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-02T01:48:49.000Z">
-<meta property="article:modified_time" content="2024-05-02T02:25:46.657Z">
+<meta property="article:modified_time" content="2024-07-04T09:14:21.426Z">
 <meta property="article:author" content="Ymy">
 <meta property="article:tag" content="Qt多线程">
 <meta name="twitter:card" content="summary">
@@ -310,10 +310,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-05-02 09:48:49 / 修改时间：10:25:46" itemprop="dateCreated datePublished" datetime="2024-05-02T09:48:49+08:00">2024-05-02</time>
+              <time title="创建时间：2024-05-02 09:48:49" itemprop="dateCreated datePublished" datetime="2024-05-02T09:48:49+08:00">2024-05-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-07-04 17:14:21" itemprop="dateModified" datetime="2024-07-04T17:14:21+08:00">2024-07-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -357,33 +363,35 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <center style="font-size:24px">
-Qt多线程和多进程
+        <center style="font-size:24px">Qt多线程和多进程
 </center>
-<p>Qt applications are event-based. When you call the
-<code>exec()</code> method, it starts an event loop and creates a thread
-that is referred to as the <strong>main thread</strong>.</p>
-<h2 id="多线程">多线程</h2>
-<ol type="1">
-<li><p><strong>进程就是运行着的程序</strong>,每个进程里面至少包含一个
-<strong>线程</strong>
-。线程是操作系统创建的，每个线程对应一个代码执行的数据结构，保存了代码执行过程中的重要的状态信息。进程开始时，OS就自动的创建一个主线程</p></li>
-<li><p>多核cpu，让多个核同时执行同一程序，加快执行速度</p></li>
+
+<p>Qt applications are event-based. When you call the <code>exec()</code> method, it starts an event loop and creates a thread that is referred to as the <strong>main thread</strong>.</p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><ol>
+<li><p><strong>进程就是运行着的程序</strong>,每个进程里面至少包含一个 <strong>线程</strong> 。线程是操作系统创建的，每个线程对应一个代码执行的数据结构，保存了代码执行过程中的重要的状态信息。进程开始时，OS就自动的创建一个主线程</p>
+</li>
+<li><p>多核cpu，让多个核同时执行同一程序，加快执行速度</p>
+</li>
 <li><p>添加新进程：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">threadFunc</span>(<span class="params">arg1,arg2</span>):<span class="comment">#新进程入口函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'子线程 开始'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f'线程函数参数是：<span class="subst">{arg1}</span>, <span class="subst">{arg2}</span>'</span>)</span><br><span class="line">    sleep(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'子线程 结束'</span>)</span><br><span class="line">thread = Thread(</span><br><span class="line">    <span class="comment"># target 参数 指定 新线程要执行的函数</span></span><br><span class="line">    target=threadFunc, <span class="comment">#新进程的入口函数</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#新线程函数若需要参数，在 args里面填入参数</span></span><br><span class="line">    <span class="comment">#注意参数是元组， 如果只有一个参数，后面要有逗号，像这样 args=('参数1',)</span></span><br><span class="line">    args=(<span class="string">'参数1'</span>, <span class="string">'参数2'</span>)</span><br><span class="line">)</span><br><span class="line">thread.start()</span><br><span class="line">thread.join()<span class="comment">#这里主线程执行了子线程的join函数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'主线程结束'</span>)</span><br></pre></td></tr></table></figure></li>
-<li><p>join函数：线程a调用了b的join函数，线程A就会停止继续执行代码，等待线程B结束。
-线程B结束后，线程A才继续执行后续的代码。一般A为主线程</p></li>
-<li><p>有时多个线程同时进行某个数据对象，可能会导致冲突产生覆盖了其他线程的操作，因此引入线程锁lock(),在线程入口函数中先获取线程锁lock.acquire(),
-别的线程已经申请到了这个锁， 并且还没有释放，那么
-线该线程的代码就在此处等待拥有线程锁的线程释放锁，不去执行后面的代码。线程操作完数据时释放线程锁lock.release()</p></li>
-<li><p>主线程和子线程 都结束，程序才会结束。</p></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">threadFunc</span>(<span class="params">arg1,arg2</span>):<span class="comment">#新进程入口函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'子线程 开始'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f'线程函数参数是：<span class="subst">{arg1}</span>, <span class="subst">{arg2}</span>'</span>)</span><br><span class="line">    sleep(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'子线程 结束'</span>)</span><br><span class="line">thread = Thread(</span><br><span class="line">    <span class="comment"># target 参数 指定 新线程要执行的函数</span></span><br><span class="line">    target=threadFunc, <span class="comment">#新进程的入口函数</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#新线程函数若需要参数，在 args里面填入参数</span></span><br><span class="line">    <span class="comment">#注意参数是元组， 如果只有一个参数，后面要有逗号，像这样 args=('参数1',)</span></span><br><span class="line">    args=(<span class="string">'参数1'</span>, <span class="string">'参数2'</span>)</span><br><span class="line">)</span><br><span class="line">thread.start()</span><br><span class="line">thread.join()<span class="comment">#这里主线程执行了子线程的join函数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'主线程结束'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>join函数：线程a调用了b的join函数，线程A就会停止继续执行代码，等待线程B结束。 线程B结束后，线程A才继续执行后续的代码。一般A为主线程</p>
+</li>
 </ol>
-<h2 id="多进程">多进程</h2>
-<ol type="1">
+<ol>
+<li>有时多个线程同时进行某个数据对象，可能会导致冲突产生覆盖了其他线程的操作，因此引入线程锁lock(),在线程入口函数中先获取线程锁lock.acquire(), 别的线程已经申请到了这个锁， 并且还没有释放，那么 线该线程的代码就在此处等待拥有线程锁的线程释放锁，不去执行后面的代码。线程操作完数据时释放线程锁lock.release()</li>
+</ol>
+<ol>
+<li>主线程和子线程 都结束，程序才会结束。</li>
+</ol>
+<h2 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h2><ol>
 <li><p>每个线程要获得执行权限，必须获取全局解释器锁GIL，因此多线程不能同时使用多个核心，因此引入多进程</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</span><br></pre></td></tr></table></figure></li>
-<li><p>Process(target=入口函数)</p></li>
-<li><p>主进程通过Manager获取子进程运算结果</p></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Process(target=入口函数)</p>
+</li>
+<li><p>主进程通过Manager获取子进程运算结果</p>
+</li>
 </ol>
 
     </div>
@@ -503,7 +511,7 @@ that is referred to as the <strong>main thread</strong>.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -516,7 +524,7 @@ that is referred to as the <strong>main thread</strong>.</p>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

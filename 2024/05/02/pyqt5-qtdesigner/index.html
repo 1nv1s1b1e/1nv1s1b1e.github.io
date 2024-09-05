@@ -357,36 +357,35 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <center style="font-size:30px">
-PyQt5+qt designer
-</center>
-<p>
-When you interact with the Qt application e.g., by pressing a key or
-pushing a button, PyQt generates an <em>event</em> and places it on an
-<em>event queue</em>.
-</p>
-<p>
-The event loop continuously checks the event queue. If the event loop
-finds an event, it’ll forward the event to a specific <em>event
-handler</em>.
-</p>
-<p>
-The event handler processes the event and passes the control back to the
-event loop for processing the next events
-</p>
-<h2 id="窗口创建">1.窗口创建</h2>
-<ol type="1">
-<li><p>app=application([]) 这里传入参数是列表</p></li>
-<li><p>ui文件显示：先实例化Quiloader类，再使用其中的load函数进行加载</p></li>
-<li><p>ui.show()函数，再用app.exec_()开始执行，进入消息loop中</p></li>
-<li><p>每次进行交互，信息会进入消息队列，会从消息队列中读取信息，进行处理，处理完成后，继续读取消息队列</p></li>
+        <center style="font-size:30px">PyQt5+qt designer</center>
+
+
+
+
+<p>When you interact with the Qt application e.g., by pressing a key or pushing a button, PyQt generates an *event* and places it on an *event queue*.</p>
+
+<p>The event loop continuously checks the event queue. If the event loop finds an event, it’ll forward the event to a specific *event handler*.</p>
+
+<p>The event handler processes the event and passes the control back to the event loop for processing the next events</p>
+
+<h2 id="1-窗口创建"><a href="#1-窗口创建" class="headerlink" title="1.窗口创建"></a>1.窗口创建</h2><ol>
+<li><p>app=application([]) 这里传入参数是列表</p>
+</li>
+<li><p>ui文件显示：先实例化Quiloader类，再使用其中的load函数进行加载</p>
+</li>
+<li><p>ui.show()函数，再用app.exec_()开始执行，进入消息loop中</p>
+</li>
+<li><p>每次进行交互，信息会进入消息队列，会从消息队列中读取信息，进行处理，处理完成后，继续读取消息队列</p>
+</li>
 </ol>
-<h2 id="信号与slot">2. 信号与slot</h2>
-<ol type="1">
-<li><p>信号触发则会引起槽函数的执行</p></li>
-<li><p>将signal和slot连接起来</p></li>
+<h2 id="2-信号与slot"><a href="#2-信号与slot" class="headerlink" title="2. 信号与slot"></a>2. 信号与slot</h2><ol>
+<li><p>信号触发则会引起槽函数的执行</p>
+</li>
+<li><p>将signal和slot连接起来</p>
+</li>
 <li><p>例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">finishSignal = pyqtSignal(x) <span class="comment">#自定义信号</span></span><br><span class="line">self.thread.finishSignal.connect(self.Func)<span class="comment">#连接槽函数 </span></span><br><span class="line">self.finishSignal.emit(<span class="built_in">str</span>(x))  <span class="comment"># 发射信号，返回参数x给槽函数</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">finishSignal = pyqtSignal(x) <span class="comment">#自定义信号</span></span><br><span class="line">self.thread.finishSignal.connect(self.Func)<span class="comment">#连接槽函数 </span></span><br><span class="line">self.finishSignal.emit(<span class="built_in">str</span>(x))  <span class="comment"># 发射信号，返回参数x给槽函数</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
     </div>
@@ -490,7 +489,7 @@ event loop for processing the next events
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E5%88%9B%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">1.窗口创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E4%B8%8Eslot"><span class="nav-number">2.</span> <span class="nav-text">2. 信号与slot</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%AA%97%E5%8F%A3%E5%88%9B%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">1.窗口创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BF%A1%E5%8F%B7%E4%B8%8Eslot"><span class="nav-number">2.</span> <span class="nav-text">2. 信号与slot</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -506,7 +505,7 @@ event loop for processing the next events
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -519,7 +518,7 @@ event loop for processing the next events
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

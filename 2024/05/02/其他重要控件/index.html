@@ -363,79 +363,64 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <center style="font-size:24px">
-Qt其他重要控件
-</center>
+        <center style="font-size:24px">Qt其他重要控件</center>
+
 <p><img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240227222607712.png" alt="image-20240227222607712" style="zoom:80%;"></p>
-<h2 id="qwidget是其他组件的容器也即父类">QWidget是其他组件的容器，也即父类</h2>
-<h2 id="qcheckbox-复选框">QCheckBox-复选框</h2>
-<ol type="1">
-<li><p>QCheckbox("text")定义一个复选框</p></li>
-<li><p>可以通过setChecked(True/False)和setChecked(Qt.Checked...)来设置复选框的选中状态</p></li>
-<li><p>stateChanged信号可以connect函数，状态发生变化触发函数</p></li>
-<li><p>checkbox.setTristate(True/False)可以定义是否含有半复选状态</p></li>
+<h2 id="QWidget是其他组件的容器，也即父类"><a href="#QWidget是其他组件的容器，也即父类" class="headerlink" title="QWidget是其他组件的容器，也即父类"></a>QWidget是其他组件的容器，也即父类</h2><h2 id="QCheckBox-复选框"><a href="#QCheckBox-复选框" class="headerlink" title="QCheckBox-复选框"></a>QCheckBox-复选框</h2><ol>
+<li><p>QCheckbox(“text”)定义一个复选框</p>
+</li>
+<li><p>可以通过setChecked(True/False)和setChecked(Qt.Checked…)来设置复选框的选中状态</p>
+</li>
+<li>stateChanged信号可以connect函数，状态发生变化触发函数</li>
+<li>checkbox.setTristate(True/False)可以定义是否含有半复选状态</li>
 </ol>
-<h2 id="qradiobutton-单选">QRadioButton-单选</h2>
-<ol type="1">
-<li>QRadioButton("text")</li>
-<li>A radio button emits the toggled() signal when it is switched on or
-off. toggled()信号在该单选选项状态变化时触发</li>
+<h2 id="QRadioButton-单选"><a href="#QRadioButton-单选" class="headerlink" title="QRadioButton-单选"></a>QRadioButton-单选</h2><ol>
+<li>QRadioButton(“text”)</li>
+<li>A radio button emits the toggled() signal when it is switched on or off. toggled()信号在该单选选项状态变化时触发</li>
 <li>相同父类的单选属于同一组,同一组中只会有一个被选中</li>
 <li>isChecked()检测按钮的开关</li>
 </ol>
-<h2 id="qcombobox-下拉列表">QComboBox-下拉列表</h2>
-<ol type="1">
+<h2 id="QComboBox-下拉列表"><a href="#QComboBox-下拉列表" class="headerlink" title="QComboBox-下拉列表"></a>QComboBox-下拉列表</h2><ol>
 <li>QComboBox(self/parent)</li>
 <li>在列表中添加item，addItem(相当于append)和InsertItem(index,item)</li>
 <li>取当前选中的Item的currentData(),currentIndex(),currentText()</li>
 <li>选项改变时产生QcomboBox.activated信号</li>
 </ol>
-<h2 id="qspinbox-计数器">QSpinBox-计数器</h2>
-<p>属性：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229194643742.png"></p>
-<ol type="1">
-<li>QspinBox("参数可以设置属性如minimum=1")</li>
+<h2 id="QSpinBox-计数器"><a href="#QSpinBox-计数器" class="headerlink" title="QSpinBox-计数器"></a>QSpinBox-计数器</h2><p>属性：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229194643742.png" alt></p>
+<ol>
+<li>QspinBox(“参数可以设置属性如minimum=1”)</li>
 <li>spinbox中的数值发生变化后会释放valueChanged信号,该信号连接的函数会接受到一个返回值，为当前spinbox中的数字，还有textChanged信号，返回Qstring</li>
 </ol>
-<h2 id="qdatetimeeditqdateeditqtimeedit">QDateTimeEdit/QDateEdit/QTimeEdit</h2>
-<p>属性：</p>
-<p><img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229195350333.png"></p>
-<ol type="1">
-<li>QDateTimeEdit(self,calendarPopup=True/False)
-,后面的参数若为true则展示日历</li>
+<h2 id="QDateTimeEdit-QDateEdit-QTimeEdit"><a href="#QDateTimeEdit-QDateEdit-QTimeEdit" class="headerlink" title="QDateTimeEdit/QDateEdit/QTimeEdit"></a>QDateTimeEdit/QDateEdit/QTimeEdit</h2><p>属性：</p>
+<p><img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229195350333.png" alt></p>
+<ol>
+<li>QDateTimeEdit(self,calendarPopup=True/False) ,后面的参数若为true则展示日历</li>
 <li>时间编辑完成时释放editingFinished信号，值变化释放dateTimeChanged信号</li>
-<li>QdateTime格式转日期格式value.toString("yyyy-MM-dd HH:mm")</li>
+<li>QdateTime格式转日期格式value.toString(“yyyy-MM-dd HH:mm”)</li>
 <li>dateTime ()方法取得当前的组件中的value</li>
 </ol>
 <p><strong>其他两种类似</strong>QDateTime</p>
 <p>转格式不同：date为str(value.toPyDate())，取为date ()</p>
 <p>time 为str(value.toPyTime())，取为time()</p>
-<h2 id="qslider-滑动条">QSlider-滑动条</h2>
-<p>A slider translates the position of the handle into an integer within
-a valid range.</p>
-<ol type="1">
-<li>QSlider(Qt.Orientation.Vertical/Horizontal, self)
-前面的参数表示滑动条的方向</li>
-<li>设置属性如下：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229201941571.png"></li>
+<h2 id="QSlider-滑动条"><a href="#QSlider-滑动条" class="headerlink" title="QSlider-滑动条"></a>QSlider-滑动条</h2><p> A slider translates the position of the handle into an integer within a valid range.</p>
+<ol>
+<li>QSlider(Qt.Orientation.Vertical/Horizontal, self)  前面的参数表示滑动条的方向</li>
+<li>设置属性如下：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229201941571.png" alt></li>
 <li>取slider的value，value ()</li>
 <li>数值变化释放valueChanged信号，会返回当前value给函数</li>
 </ol>
-<h2 id="qtabwidget-选项卡">QTabWidget-选项卡</h2>
-<ol type="1">
+<h2 id="QTabWidget-选项卡"><a href="#QTabWidget-选项卡" class="headerlink" title="QTabWidget-选项卡"></a>QTabWidget-选项卡</h2><ol>
 <li>tab=QTabWidget()</li>
-<li>创建页面使用QWidget(self)例：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229202849973.png"></li>
+<li>创建页面使用QWidget(self)例：<img src="/2024/05/02/%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E6%8E%A7%E4%BB%B6/image-20240229202849973.png" alt></li>
 <li>然后再向每一个Qwidget中加入组件</li>
-<li>每个页面加入QtabWidget，tab.addTab(Qwidget变量名,"页面名")</li>
-<li>可以设置让每个tab可以动，tab =
-QTabWidget(self,movable=True)或tab.setMovable(True)，设置显示关闭按钮tab
-= QTabWidget(self,tabsClosable=True)或tab.setTabsClosable(True)</li>
+<li>每个页面加入QtabWidget，tab.addTab(Qwidget变量名,”页面名”)</li>
+<li>可以设置让每个tab可以动，tab = QTabWidget(self,movable=True)或tab.setMovable(True)，设置显示关闭按钮tab = QTabWidget(self,tabsClosable=True)或tab.setTabsClosable(True)</li>
 <li>还可以改变tab的位置东南西北和shape</li>
 </ol>
-<h2 id="qtextedit-多行文本框">QTextEdit-多行文本框</h2>
-<ol type="1">
+<h2 id="QTextEdit-多行文本框"><a href="#QTextEdit-多行文本框" class="headerlink" title="QTextEdit-多行文本框"></a>QTextEdit-多行文本框</h2><ol>
 <li>QTextEdit(self)</li>
 </ol>
-<h2 id="qprogressbar-进度条">QProgressBar-进度条</h2>
-<ol type="1">
+<h2 id="QProgressBar-进度条"><a href="#QProgressBar-进度条" class="headerlink" title="QProgressBar-进度条"></a>QProgressBar-进度条</h2><ol>
 <li>QProgressBar()</li>
 <li>计算当前进度(current_value - minimum ) / (maximum - minimum)</li>
 <li>setValue/reset</li>
@@ -542,7 +527,7 @@ QTabWidget(self,movable=True)或tab.setMovable(True)，设置显示关闭按钮t
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#qwidget%E6%98%AF%E5%85%B6%E4%BB%96%E7%BB%84%E4%BB%B6%E7%9A%84%E5%AE%B9%E5%99%A8%E4%B9%9F%E5%8D%B3%E7%88%B6%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">QWidget是其他组件的容器，也即父类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qcheckbox-%E5%A4%8D%E9%80%89%E6%A1%86"><span class="nav-number">2.</span> <span class="nav-text">QCheckBox-复选框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qradiobutton-%E5%8D%95%E9%80%89"><span class="nav-number">3.</span> <span class="nav-text">QRadioButton-单选</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qcombobox-%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">QComboBox-下拉列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qspinbox-%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">QSpinBox-计数器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qdatetimeeditqdateeditqtimeedit"><span class="nav-number">6.</span> <span class="nav-text">QDateTimeEdit&#x2F;QDateEdit&#x2F;QTimeEdit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qslider-%E6%BB%91%E5%8A%A8%E6%9D%A1"><span class="nav-number">7.</span> <span class="nav-text">QSlider-滑动条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qtabwidget-%E9%80%89%E9%A1%B9%E5%8D%A1"><span class="nav-number">8.</span> <span class="nav-text">QTabWidget-选项卡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qtextedit-%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E6%A1%86"><span class="nav-number">9.</span> <span class="nav-text">QTextEdit-多行文本框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qprogressbar-%E8%BF%9B%E5%BA%A6%E6%9D%A1"><span class="nav-number">10.</span> <span class="nav-text">QProgressBar-进度条</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#QWidget%E6%98%AF%E5%85%B6%E4%BB%96%E7%BB%84%E4%BB%B6%E7%9A%84%E5%AE%B9%E5%99%A8%EF%BC%8C%E4%B9%9F%E5%8D%B3%E7%88%B6%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">QWidget是其他组件的容器，也即父类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QCheckBox-%E5%A4%8D%E9%80%89%E6%A1%86"><span class="nav-number">2.</span> <span class="nav-text">QCheckBox-复选框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QRadioButton-%E5%8D%95%E9%80%89"><span class="nav-number">3.</span> <span class="nav-text">QRadioButton-单选</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QComboBox-%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">QComboBox-下拉列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QSpinBox-%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">QSpinBox-计数器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QDateTimeEdit-QDateEdit-QTimeEdit"><span class="nav-number">6.</span> <span class="nav-text">QDateTimeEdit&#x2F;QDateEdit&#x2F;QTimeEdit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QSlider-%E6%BB%91%E5%8A%A8%E6%9D%A1"><span class="nav-number">7.</span> <span class="nav-text">QSlider-滑动条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QTabWidget-%E9%80%89%E9%A1%B9%E5%8D%A1"><span class="nav-number">8.</span> <span class="nav-text">QTabWidget-选项卡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QTextEdit-%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E6%A1%86"><span class="nav-number">9.</span> <span class="nav-text">QTextEdit-多行文本框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QProgressBar-%E8%BF%9B%E5%BA%A6%E6%9D%A1"><span class="nav-number">10.</span> <span class="nav-text">QProgressBar-进度条</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -558,7 +543,7 @@ QTabWidget(self,movable=True)或tab.setMovable(True)，设置显示关闭按钮t
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -571,7 +556,7 @@ QTabWidget(self,movable=True)或tab.setMovable(True)，设置显示关闭按钮t
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -360,36 +360,37 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <center style="font-size:24px">
-Qt基本控件
-</center>
-<h2 id="qlabel">Qlabel</h2>
-<ol type="1">
-<li><p>实例化Qlabel类,输入label的文字，Qlabel("hh"),或者label.setText("hh")</p></li>
-<li><p>.text()获得文字, .clear()清空文字</p></li>
-<li><p>显示图片使用setPixmap()，先实例化Qlabel和QPixmap两个对象</p></li>
-<li><p>显示动态图(gif)，类似的使用setMovie(),实例化Qlabel和QMovie，
-先movie.start()，再label.show()</p></li>
+        <center style="font-size:24px">Qt基本控件</center>
+
+
+<h2 id="Qlabel"><a href="#Qlabel" class="headerlink" title="Qlabel"></a>Qlabel</h2><ol>
+<li><p>实例化Qlabel类,输入label的文字，Qlabel(“hh”),或者label.setText(“hh”)</p>
+</li>
+<li><p>.text()获得文字, .clear()清空文字</p>
+</li>
+<li><p>显示图片使用setPixmap()，先实例化Qlabel和QPixmap两个对象</p>
+</li>
+<li><p>显示动态图(gif)，类似的使用setMovie(),实例化Qlabel和QMovie， 先movie.start()，再label.show()</p>
+</li>
 </ol>
-<h2 id="qpushbutton">QPushButton</h2>
-<ol type="1">
-<li>设置图标：setIcon(),实例化QIcon和button对象，QIcon('xxx.png')</li>
-<li>checked和checkable属性可以设置默认状态下的state...</li>
+<h2 id="QPushButton"><a href="#QPushButton" class="headerlink" title="QPushButton"></a>QPushButton</h2><ol>
+<li>设置图标：setIcon(),实例化QIcon和button对象，QIcon(‘xxx.png’)</li>
+<li>checked和checkable属性可以设置默认状态下的state…</li>
 </ol>
-<h2 id="qlineedit">QLineEdit</h2>
-<ol type="1">
-<li><p>line_edit = QLineEdit('Default Value', self)
-self是父对象</p></li>
-<li><p>常见属性</p>
-<ol type="1">
+<h2 id="QLineEdit"><a href="#QLineEdit" class="headerlink" title="QLineEdit"></a>QLineEdit</h2><ol>
+<li><p>line_edit = QLineEdit(‘Default Value’, self) self是父对象</p>
+</li>
+<li><p>常见属性 </p>
+<ol>
 <li>改echomode为password输密码形式</li>
 <li>使用Qcompleter类实现提示词，输入会出现对应符合条件的词</li>
 </ol>
 <p>使用仍然是实例化QLineEdit和QCompleter，Qcompleter(wordlist),然后</p>
-<p>lineEdit.SetCompleter(Completer)</p></li>
+<p>lineEdit.SetCompleter(Completer)</p>
+</li>
 </ol>
-<p><img src="/2024/05/02/Qt%E5%9F%BA%E6%9C%AC%E6%8E%A7%E4%BB%B6/image-20240225213059114-17146166777587.png"></p>
-<p><img src="/2024/05/02/Qt%E5%9F%BA%E6%9C%AC%E6%8E%A7%E4%BB%B6/image-20240225213451984-17146166777588.png"></p>
+<p><img src="/2024/05/02/Qt%E5%9F%BA%E6%9C%AC%E6%8E%A7%E4%BB%B6/image-20240225213059114-17146166777587.png" alt></p>
+<p><img src="/2024/05/02/Qt%E5%9F%BA%E6%9C%AC%E6%8E%A7%E4%BB%B6/image-20240225213451984-17146166777588.png" alt></p>
 <p><strong><em>明天写布局和其他控件</em></strong></p>
 
     </div>
@@ -493,7 +494,7 @@ self是父对象</p></li>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#qlabel"><span class="nav-number">1.</span> <span class="nav-text">Qlabel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qpushbutton"><span class="nav-number">2.</span> <span class="nav-text">QPushButton</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qlineedit"><span class="nav-number">3.</span> <span class="nav-text">QLineEdit</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Qlabel"><span class="nav-number">1.</span> <span class="nav-text">Qlabel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QPushButton"><span class="nav-number">2.</span> <span class="nav-text">QPushButton</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QLineEdit"><span class="nav-number">3.</span> <span class="nav-text">QLineEdit</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -509,7 +510,7 @@ self是父对象</p></li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -522,7 +523,7 @@ self是父对象</p></li>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

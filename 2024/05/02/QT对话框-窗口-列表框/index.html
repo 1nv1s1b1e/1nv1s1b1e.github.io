@@ -363,44 +363,44 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <center style="font-size:24px">
-Qt对话框+窗口+列表框
-</center>
-<h2 id="qmessagebox">QMessageBox</h2>
-<ol type="1">
-<li>多个方法：<img src="/2024/05/02/QT%E5%AF%B9%E8%AF%9D%E6%A1%86-%E7%AA%97%E5%8F%A3-%E5%88%97%E8%A1%A8%E6%A1%86/image-20240301195545871.png"></li>
+        <center style="font-size:24px">Qt对话框+窗口+列表框</center>
+
+
+<h2 id="QMessageBox"><a href="#QMessageBox" class="headerlink" title="QMessageBox"></a>QMessageBox</h2><ol>
+<li>多个方法：<img src="/2024/05/02/QT%E5%AF%B9%E8%AF%9D%E6%A1%86-%E7%AA%97%E5%8F%A3-%E5%88%97%E8%A1%A8%E6%A1%86/image-20240301195545871.png" alt></li>
 </ol>
 <p>如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">info</span>(<span class="params">self</span>):</span><br><span class="line">       QMessageBox.information(</span><br><span class="line">           self,</span><br><span class="line">           <span class="string">'Information'</span>,</span><br><span class="line">           <span class="string">'This is important information.'</span></span><br><span class="line">       )</span><br></pre></td></tr></table></figure>
 <p>参数为父类,窗口名,提示信息</p>
 <p>question为重点：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">question</span>(<span class="params">self</span>):</span><br><span class="line">       answer = QMessageBox.question(</span><br><span class="line">           self,</span><br><span class="line">           <span class="string">'Confirmation'</span>,</span><br><span class="line">           <span class="string">'Do you want to quit?'</span>,</span><br><span class="line">           QMessageBox.StandardButton.Yes |</span><br><span class="line">           QMessageBox.StandardButton.No <span class="comment">#肯定与否定按钮</span></span><br><span class="line">       )</span><br><span class="line">       <span class="keyword">if</span> answer == QMessageBox.StandardButton.Yes:</span><br><span class="line">           QMessageBox.information(</span><br><span class="line">               self,</span><br><span class="line">               <span class="string">'Information'</span>,</span><br><span class="line">               <span class="string">'You selected Yes. The program will be terminated.'</span>,</span><br><span class="line">               QMessageBox.StandardButton.Ok<span class="comment">#显示ok button</span></span><br><span class="line">           )</span><br><span class="line">           self.close()</span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           QMessageBox.information(</span><br><span class="line">               self,</span><br><span class="line">               <span class="string">'Information'</span>,</span><br><span class="line">               <span class="string">'You selected No.'</span>,</span><br><span class="line">               QMessageBox.StandardButton.Ok</span><br><span class="line">           </span><br></pre></td></tr></table></figure>
-<h2 id="qfiledialog">QFileDialog</h2>
-<ol type="1">
-<li><p>dialog = QFileDialog(self)</p></li>
-<li><p>可以选择不同的filemode：<img src="/2024/05/02/QT%E5%AF%B9%E8%AF%9D%E6%A1%86-%E7%AA%97%E5%8F%A3-%E5%88%97%E8%A1%A8%E6%A1%86/image-20240301201905691.png"></p></li>
-<li><p>过滤文件格式如：dialog.setNameFilter("Images (*.png
-*.jpg)")多重过滤时加两个分号"Images (*.png *.jpg);;Vector
-(*.svg)"</p></li>
-<li><p>改查看时的视图：dialog.setViewMode(QFileDialog.Detail)</p></li>
-<li><p>设置开始目录选文件，<img src="/2024/05/02/QT%E5%AF%B9%E8%AF%9D%E6%A1%86-%E7%AA%97%E5%8F%A3-%E5%88%97%E8%A1%A8%E6%A1%86/image-20240301203606630.png"></p>
-<p><img src="/2024/05/02/QT%E5%AF%B9%E8%AF%9D%E6%A1%86-%E7%AA%97%E5%8F%A3-%E5%88%97%E8%A1%A8%E6%A1%86/image-20240301203655732.png"></p></li>
-<li><p>getOpenFileName(
-返回值为一个元组，第一个元素为选中的路径，第二个不需要,
-但需要接收)和getpenFileName选多个文件(
-返回值第一个为选中的文件路径list)</p></li>
-<li><p>选择文件夹：getExistingDirectory(self,消息框title),返回值为文件夹路径</p></li>
+<h2 id="QFileDialog"><a href="#QFileDialog" class="headerlink" title="QFileDialog"></a>QFileDialog</h2><ol>
+<li><p>dialog = QFileDialog(self)</p>
+</li>
+<li><p>可以选择不同的filemode：<img src="/2024/05/02/QT%E5%AF%B9%E8%AF%9D%E6%A1%86-%E7%AA%97%E5%8F%A3-%E5%88%97%E8%A1%A8%E6%A1%86/image-20240301201905691.png" alt></p>
+</li>
+<li><p>过滤文件格式如：dialog.setNameFilter(“Images (*.png  *.jpg)”)多重过滤时加两个分号”Images (*.png  *.jpg);;Vector (*.svg)”</p>
+</li>
+<li><p>改查看时的视图：dialog.setViewMode(QFileDialog.Detail)</p>
+</li>
+<li><p>设置开始目录选文件，<img src="/2024/05/02/QT%E5%AF%B9%E8%AF%9D%E6%A1%86-%E7%AA%97%E5%8F%A3-%E5%88%97%E8%A1%A8%E6%A1%86/image-20240301203606630.png" alt></p>
+<p><img src="/2024/05/02/QT%E5%AF%B9%E8%AF%9D%E6%A1%86-%E7%AA%97%E5%8F%A3-%E5%88%97%E8%A1%A8%E6%A1%86/image-20240301203655732.png" alt></p>
+</li>
+<li><p>getOpenFileName( 返回值为一个元组，第一个元素为选中的路径，第二个不需要, 但需要接收)和getpenFileName选多个文件( 返回值第一个为选中的文件路径list)</p>
+</li>
+<li><p>选择文件夹：getExistingDirectory(self,消息框title),返回值为文件夹路径</p>
+</li>
 </ol>
-<h2 id="menubar">MenuBar</h2>
-<ol type="1">
+<h2 id="MenuBar"><a href="#MenuBar" class="headerlink" title="MenuBar"></a>MenuBar</h2><ol>
 <li>menuBar()</li>
 <li>添加选项addMenu()</li>
 <li>在每个选项中添加action，addAction()</li>
 </ol>
-<h2 id="qlistwidget">QListWidget</h2>
-<ol type="1">
-<li><p><img src="/2024/05/02/QT%E5%AF%B9%E8%AF%9D%E6%A1%86-%E7%AA%97%E5%8F%A3-%E5%88%97%E8%A1%A8%E6%A1%86/image-20240302093336330.png"></p></li>
-<li><p>可结合QInputDialog来使用addItem</p></li>
+<h2 id="QListWidget"><a href="#QListWidget" class="headerlink" title="QListWidget"></a>QListWidget</h2><ol>
+<li><p><img src="/2024/05/02/QT%E5%AF%B9%E8%AF%9D%E6%A1%86-%E7%AA%97%E5%8F%A3-%E5%88%97%E8%A1%A8%E6%A1%86/image-20240302093336330.png" alt></p>
+</li>
+<li><p>可结合QInputDialog来使用addItem</p>
+</li>
 </ol>
 
     </div>
@@ -504,7 +504,7 @@ Qt对话框+窗口+列表框
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#qmessagebox"><span class="nav-number">1.</span> <span class="nav-text">QMessageBox</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qfiledialog"><span class="nav-number">2.</span> <span class="nav-text">QFileDialog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#menubar"><span class="nav-number">3.</span> <span class="nav-text">MenuBar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qlistwidget"><span class="nav-number">4.</span> <span class="nav-text">QListWidget</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#QMessageBox"><span class="nav-number">1.</span> <span class="nav-text">QMessageBox</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QFileDialog"><span class="nav-number">2.</span> <span class="nav-text">QFileDialog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MenuBar"><span class="nav-number">3.</span> <span class="nav-text">MenuBar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QListWidget"><span class="nav-number">4.</span> <span class="nav-text">QListWidget</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -520,7 +520,7 @@ Qt对话框+窗口+列表框
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -533,7 +533,7 @@ Qt对话框+窗口+列表框
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
